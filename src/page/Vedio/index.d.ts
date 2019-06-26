@@ -18,8 +18,14 @@ interface Comment{ // 评论类型
     content:string;
     praise:number
 }
+interface Praise{ // 我的点赞
+    commentId:number;
+    id:number
+}
+
 interface State { // state 类型审查
-    inputOff:Boolean,
-    Comments:Array<Comment>
+    inputOff:Boolean;
+    Comments:Array<Comment>;
+    myPraise:Array<Praise>
 }
 export {Props , State}

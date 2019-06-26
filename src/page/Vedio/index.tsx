@@ -18,7 +18,25 @@ class Vedio extends React.Component<Props, State> {
     LikeDom:any
     readonly state: State = {
         inputOff:true,
-        Comments:[]
+        Comments:[
+            {
+                "createTime": "2019-06-25",
+                "student": {
+                    "imgUrl": "http:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/Q0j4TwGTfTK7H70jhKO2oEyKkLB4EqHEJARTZxfCsLHbeN00gkoJPpIUTib8mx6kdr97FqYZo78a9tNibF2zdDlw\/132",
+                    "nickName": "李锋️"
+                },
+                "id": 1,
+                "content": "假字假字假字假字假字假字假字假字假字假字假字假字假字假字",
+                "praise": 2
+            }
+        ],
+        "myPraise":[
+            {
+                "commentId":1,
+                "id":1
+            }
+        ]
+
     }
     public async componentWillMount() {
         window.onscroll=()=>{
@@ -52,7 +70,7 @@ class Vedio extends React.Component<Props, State> {
         TweenMax.from(this.LikeDom, 1.2, { scale:1.6 })
     }
     commentLike = ():void => {
-
+        
     }
     render() {
         return (
@@ -126,35 +144,34 @@ class Vedio extends React.Component<Props, State> {
                     </span>
                 </div>
                 <div className="comments">
-                        <div className="item">
+                   {   this.state.Comments.map(item=><div key={item.id} className="item">
                             <div className="tip">
                                 <div className="user_dec">
                                     <img
-                                    src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK7H70jhKO2oEyKkLB4EqHEJARTZxfCsLHbeN00gkoJPpIUTib8mx6kdr97FqYZo78a9tNibF2zdDlw/132" 
+                                    src={item.student.imgUrl} 
                                     alt="头像地址"
                                     />
                                     <div className="user_dec_box">
                                         <div className="user_name">
-                                            用户的昵称假字假字假字
+                                            {item.student.nickName}
                                         </div>
                                         <div className="user_time">
-                                            2019-06-23
+                                            {item.createTime}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="ok_num">
                                         <img src={isokImg} alt="点赞"/>
                                         <span>
-                                            7
+                                            {item.praise}
                                         </span>
                                 </div>
                             </div>
                             <div className="content">
-                            假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假字假
-                            字假字假字假字假字假字假字假字
+                            {item.content}
                             </div>
 
-                        </div>
+                        </div>) }
                 </div>
 
              {!this.state.inputOff&&<div className="input_box">

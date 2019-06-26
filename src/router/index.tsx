@@ -6,6 +6,7 @@ import "../compontents/Loading/index.styl"
 const Index = React.lazy(() => import("../page/Index"));
 const List = React.lazy(() => import("../page/List"));
 const Vedio = React.lazy(() => import("../page/Vedio"));
+const User = React.lazy(() => import("../page/User"));
 
 
 const AppRouter: React.FC = () => {
@@ -54,6 +55,7 @@ const AppRouter: React.FC = () => {
                         <Route path='/' exact component={Index} />
                         <Route path='/list' exact component={List} />
                         <Route path='/vedio' exact component={Vedio} />
+                        <Route path='/User' exact component={User} />
                
 
                         <Route render={() => <Redirect to="/" />} />
