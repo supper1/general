@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { History, Location } from "history"
-import { match } from "react-router-dom"
 import * as homeActions from '../../redux/actions/home'
 import { bindActionCreators } from 'redux';
 import okImg from '../../img/ok.png'
@@ -12,26 +10,49 @@ import isokImg from '../../img/isok.png'
 import commentImg from '../../img/comment.png'
 import shareImg from '../../img/share.png';
 import './index.styl'
-
-interface Props extends React.Props<any> {  // 参数类型审查
-    match: match;
-    history: History;
-    Location: Location;
-    home: any
-}
-interface State { // state 类型审查
-}
-
+import TweenMax from 'gsap';
+import {Props,State} from './index.d'
 
 class Vedio extends React.Component<Props, State> {
+    isokDom:any
+    LikeDom:any
     readonly state: State = {
-
+        inputOff:true,
+        Comments:[]
     }
     public async componentWillMount() {
+        window.onscroll=()=>{
+            if(window.scrollY>(window.innerWidth*2.6-window.innerHeight)){
+                this.setState({
+                    inputOff:false,
 
+                })
+            }else{
+                this.setState({
+                    inputOff:true,
+
+                })
+            }
+         }
     }
     public back = (): void => {
         this.props.history.goBack()
+    }
+    scrollto = ():void => {
+        window.scrollTo(0, window.innerWidth*2.4);
+    }
+    isok = ():void => {
+        TweenMax.to(this.isokDom, 0, { scale:1 })
+        TweenMax.killAll();
+        TweenMax.from(this.isokDom, 1.2, { scale:1.8 })
+    }
+    Like = ():void => {
+        TweenMax.to(this.LikeDom, 0, { scale:1 })
+        TweenMax.killAll();
+        TweenMax.from(this.LikeDom, 1.2, { scale:1.6 })
+    }
+    commentLike = ():void => {
+
     }
     render() {
         return (
@@ -54,7 +75,7 @@ class Vedio extends React.Component<Props, State> {
                        </div>
                         <div className="icon_box">
                             <div className="icon_item">
-                                <img src={okImg} />
+                                <img src={okImg} ref={div=>this.isokDom=div} onClick={this.isok}/>
                                 <span>
                                     195123312
                                 </span>
@@ -69,27 +90,29 @@ class Vedio extends React.Component<Props, State> {
                     </div>
                     <div className="dec_box">
                         本期介绍：假字假字假字假字假字假字假字假字假字假字假字假字假字假字
-                        假字假字假字假字假字假字假字假字假字假字假字假字
+                        假字假字假字假字假字假字假字假字假字假字
                     </div>
                 </div>
                 <Anthology push={this.props.history.push} />
                 <Poster />
-                <div className="comment_box active">
-                    <span className="comment_text">
+                <div className={this.state.inputOff?"comment_box":"comment_box active"}>
+                    <span className="comment_text" onClick={this.scrollto}>
                         全部评论
                     <span>
                             212331
                     </span>
                     </span>
                     <span className="icon_box">
-                        <div className="icon_item">
+                        <div className="icon_item" onClick={this.scrollto}>
                             <img src={commentImg} alt="评论" />
                             <span>
                                 评 论
                         </span>
                         </div>
-                        <div className="icon_item">
-                            <img src={isokImg} alt="点赞" />
+                        <div className="icon_item" 
+                        ref={div=>this.LikeDom=div}
+                         onClick={this.Like}>
+                            <img src={isokImg} alt="点赞" onClick={this.commentLike}/>
                             <span>
                                 点 赞
                         </span>
@@ -134,14 +157,14 @@ class Vedio extends React.Component<Props, State> {
                         </div>
                 </div>
 
-                <div className="input_box">
+             {!this.state.inputOff&&<div className="input_box">
                     <img 
                     src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK7H70jhKO2oEyKkLB4EqHEJARTZxfCsLHbeN00gkoJPpIUTib8mx6kdr97FqYZo78a9tNibF2zdDlw/132" 
                     alt="头像"/>
 
                     <input type="text" className="input"/>
                     <button className="submit">发 表</button>
-                </div>
+                </div>}
             </div>
         );
     }
