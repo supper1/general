@@ -1,6 +1,6 @@
 import request from './request'
 import Cookies from 'js-cookie';
-import qs from 'querystring-browser';
+import qs from 'querystring';
 import store from '../redux/store/Store'
 import { Dispatch, AnyAction } from 'redux'
 import * as actionTypes from '../redux/constants/actionTypes';

@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Store from '../redux/store/Store';
 import * as actionTypes from '../redux/constants/actionTypes'
 import "../compontents/Loading/index.styl"
-const Cover = React.lazy(() => import("../page/Cover"));
+const Index = React.lazy(() => import("../page/Index"));
+const List = React.lazy(() => import("../page/List"));
+const Vedio = React.lazy(() => import("../page/Vedio"));
 
 
 const AppRouter: React.FC = () => {
@@ -49,7 +51,9 @@ const AppRouter: React.FC = () => {
             </div>}>
                 <div>
                     <Switch>
-                        <Route path='/' exact component={Cover} />
+                        <Route path='/' exact component={Index} />
+                        <Route path='/list' exact component={List} />
+                        <Route path='/vedio' exact component={Vedio} />
                
 
                         <Route render={() => <Redirect to="/" />} />
