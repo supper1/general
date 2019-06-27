@@ -12,6 +12,8 @@ import shareImg from '../../img/share.png';
 import './index.styl'
 import TweenMax from 'gsap';
 import {Props,State} from './index.d'
+import {vedioArr,videoData} from '../data'
+import qs from 'querystring';
 
 class Vedio extends React.Component<Props, State> {
     isokDom:any
@@ -35,8 +37,10 @@ class Vedio extends React.Component<Props, State> {
                 "commentId":1,
                 "id":1
             }
-        ]
-
+        ],
+        shareOff:false,
+        data:null,
+        id:0
     }
     public async componentWillMount() {
         window.onscroll=()=>{
@@ -51,6 +55,18 @@ class Vedio extends React.Component<Props, State> {
 
                 })
             }
+         }
+         let url: string = window.location.search.replace('?', '')
+         let id: number = Number(qs.parse(url).id)   // 获取url里面参数
+         if(!id){
+           this.props.history.goBack()
+         }else{
+           
+            let arr:Array<videoData> = vedioArr.filter(item=>item.id===id)
+            this.setState({
+              data:arr[0],
+              id
+            })
          }
     }
     public back = (): void => {
@@ -72,15 +88,25 @@ class Vedio extends React.Component<Props, State> {
     commentLike = ():void => {
         
     }
+    shareFun = ():void => { // 打开分享
+        this.setState({
+            shareOff:true
+        })
+    }
+    closeShare = ():void => { // 关闭分享
+        this.setState({
+            shareOff:false
+        })
+    }
     render() {
         return (
             <div id="Vedio">
                 <div className="vedio_box">
                     <video
-                        src="http://www.raziel.site/general/v22.mp4"
+                        src={this.state.data.url}
                         width="100%"
                         height="100%"
-                        poster="http://www.raziel.site/general/poster1.png"
+                        poster={this.state.data.imgUrl}
                         controls
                     >
 
@@ -89,7 +115,7 @@ class Vedio extends React.Component<Props, State> {
                 <div className="vedio_dec">
                     <div className="title_box">
                         <div className="title">
-                            第一期  齐路通：自强不息
+                            {this.state.data.order}  {this.state.data.title}
                        </div>
                         <div className="icon_box">
                             <div className="icon_item">
@@ -107,8 +133,7 @@ class Vedio extends React.Component<Props, State> {
                         </div>
                     </div>
                     <div className="dec_box">
-                        本期介绍：假字假字假字假字假字假字假字假字假字假字假字假字假字假字
-                        假字假字假字假字假字假字假字假字假字假字
+                        本期介绍：{this.state.data.dec}
                     </div>
                 </div>
                 <Anthology push={this.props.history.push} />
@@ -135,7 +160,7 @@ class Vedio extends React.Component<Props, State> {
                                 点 赞
                         </span>
                         </div>
-                        <div className="icon_item">
+                        <div className="icon_item" onClick={this.shareFun}>
                             <img src={shareImg} alt="分享" />
                             <span>
                                 分 享
@@ -181,6 +206,9 @@ class Vedio extends React.Component<Props, State> {
 
                     <input type="text" className="input"/>
                     <button className="submit">发 表</button>
+                </div>}
+                {this.state.shareOff&&<div onClick={this.closeShare} className="share_box">
+
                 </div>}
             </div>
         );

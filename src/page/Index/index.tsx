@@ -6,6 +6,7 @@ import * as homeActions from '../../redux/actions/home'
 import { bindActionCreators } from 'redux';
 import Anthology from '../../compontents/Anthology/index'
 import Poster from '../../compontents/Poster/index'
+import {islogin} from '../../api/api';
 import './index.styl'
 
 interface Props extends React.Props<any> {  // 参数类型审查
@@ -27,7 +28,7 @@ class Index extends React.Component<Props, State> {
     vedioBtnOff: true
   }
   public async componentWillMount() {
-
+    islogin()
   }
   componentDidMount(){
     this.div.onplaying=()=>{

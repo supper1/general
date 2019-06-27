@@ -7,7 +7,7 @@ import 'whatwg-fetch'
 import qs  from 'querystring'
 import Loading from '../compontents/Loading'
 import Cookies from 'js-cookie'
-const baseUrl:string = 'http://english.xrspy.com/api'; // 接口baseUrl
+const baseUrl:string = ''; // 接口baseUrl
 // const baseUrl:string = ''; // 接口baseUrl
 interface params {
     url:string,

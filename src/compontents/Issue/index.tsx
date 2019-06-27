@@ -19,12 +19,11 @@ class Issue extends React.Component<Props,State> {
       
   }
   gotoVedio = ():void=>{
-    this.props.push("/vedio")
+    this.props.push("/vedio?id="+this.props.data.id)
   }
   render() {
     return (
       <div id="Issue" onClick={this.gotoVedio}>
-      
                  <div className="img_box"> 
                  <img src={this.props.data.imgUrl} alt="封面图" className="userImg"/>
                  <div className="shadow">

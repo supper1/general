@@ -92,7 +92,7 @@ export const vedioArr:Array<videoData> = [
 export const userArr:Array<userData> = [
     {
         id:1,
-        name:"刘文清",
+        name:"刘文清", 
         position:"少将",
         langPosition:"中国人民解放军海军航空兵原副司令",
         dec:`刘文清，男，河北临漳人，1940年出生，曾任东海舰队航空兵司令、北京海军
