@@ -76,15 +76,7 @@ class User extends React.Component<Props,State> {
             </span>
         </div>
         <div className="about_content">
-            <Issue push={this.props.history.push}/>
-            <Issue push={this.props.history.push}/>
-            <Issue push={this.props.history.push}/>
-            <Issue push={this.props.history.push}/>
-            <Issue push={this.props.history.push}/>
-            <Issue push={this.props.history.push}/>
-            <Issue push={this.props.history.push}/>
-            <Issue push={this.props.history.push}/>
-            <Issue push={this.props.history.push}/>
+            
         </div>
       </div>
     );

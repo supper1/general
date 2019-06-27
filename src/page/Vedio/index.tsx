@@ -112,7 +112,7 @@ class Vedio extends React.Component<Props, State> {
                     </div>
                 </div>
                 <Anthology push={this.props.history.push} />
-                <Poster />
+                <Poster push={this.props.history.push}/>
                 <div className={this.state.inputOff?"comment_box":"comment_box active"}>
                     <span className="comment_text" onClick={this.scrollto}>
                         全部评论

@@ -6,6 +6,7 @@ import * as homeActions from '../../redux/actions/home'
 import { bindActionCreators } from 'redux';
 import Issue from '../../compontents/Issue/index'
 import './index.styl'
+import {vedioArr} from '../data'
 
 interface Props extends React.Props<any> {  // 参数类型审查
   match: match;
@@ -34,16 +35,12 @@ class List extends React.Component<Props,State> {
         {"< 选集"}
        </div>
        <div className="box">
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
-             <Issue push={this.props.history.push}/>
+       { vedioArr.map(item=><Issue
+             key={item.id} 
+             data={item} 
+             push={this.props.history.push}
+             />) 
+             }
              
        </div>
       </div>

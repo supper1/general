@@ -3,16 +3,17 @@ import cardImg from '../../img/card.png';
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
 import './index.styl'
-import user4 from '../../img/user4.jpg';
-import user6 from '../../img/user6.jpg';
-import user7 from '../../img/user7.jpg';
+import {userArr} from '../../page/data'
 interface State { // state 类型审查
-    swiperIndex:number
+    swiperIndex:number,
 }
-class Poster extends React.Component {
+interface Props {
+    push:Function
+}
+class Poster extends React.Component<Props,State> {
 
     readonly state: State = {
-        swiperIndex:0
+        swiperIndex:0,
     }
     public async componentWillMount() {
 
@@ -38,6 +39,9 @@ class Poster extends React.Component {
         });
 
     }
+    gotoUser = (id:number):void=>{
+        this.props.push("/user?id="+id)
+    }
     render() {
         return (
             <div id="Poster">
@@ -49,31 +53,11 @@ class Poster extends React.Component {
                 </div>
                 <div className="swiper-container">
                     <div className="swiper-wrapper">
-                        <div className="swiper-slide">
-                            <img src={user4} alt="用户4" />
+                      { userArr.map(item=><div key={item.id} className="swiper-slide" onClick={()=>this.gotoUser(item.id)}>
+                            <img src={item.imgUrl} alt="用户4" />
 
-                        </div>
-                         <div className="swiper-slide">
-                            <img src={user6} alt="用户4" />
-
-                        </div> 
-                        <div className="swiper-slide">
-                            <img src={user7} alt="用户4" />
-
-                        </div>
-                         <div className="swiper-slide">
-                            <img src={user4} alt="用户4" />
-
-                        </div>
-                        <div className="swiper-slide">
-                            <img src={user6} alt="用户4" />
-
-                        </div>
-
-                        <div className="swiper-slide">
-                            <img src={user7} alt="用户4" />
-
-                        </div>
+                        </div>)}
+                         
 
 
                     </div>
@@ -82,10 +66,10 @@ class Poster extends React.Component {
                 </div>
                 <div className="bottom_text">
                     <div className="name">
-                        鲍 齐
+                    {userArr[this.state.swiperIndex].name}
                     </div>
                     <div className="user_dec">
-                        中国人名解放军原海军上海基地副参谋长
+                        {userArr[this.state.swiperIndex].langPosition}
                     </div>
                 </div>
 

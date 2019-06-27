@@ -1,11 +1,13 @@
 import React from 'react';
 import user4 from '../../img/user4.jpg'
 import './index.styl'
+import {videoData} from '../../page/data';
 interface State  { // state 类型审查
  
 }
 interface Props  { // state 类型审查
-    push:Function
+    push:Function;
+    data:videoData
 }
 
 class Issue extends React.Component<Props,State> {
@@ -24,19 +26,19 @@ class Issue extends React.Component<Props,State> {
       <div id="Issue" onClick={this.gotoVedio}>
       
                  <div className="img_box"> 
-                 <img src={user4} alt="封面图" className="userImg"/>
+                 <img src={this.props.data.imgUrl} alt="封面图" className="userImg"/>
                  <div className="shadow">
                     <div className="order">
-                        第一期
+                        {this.props.data.order}
                     </div>
                  </div>
                 </div>   
                 <div className="name">
                     <div className="top">
-                        刘文清：勤奋好学
+                        {this.props.data.title}
                     </div>
                     <div className="dec">
-                        任何时候都不能骄傲
+                        {this.props.data.dec}
                     </div>
                 </div>
             

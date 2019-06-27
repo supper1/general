@@ -3,6 +3,7 @@ import menuImg from '../../img/menu.png';
 import user4 from '../../img/user4.jpg'
 import './index.styl'
 import Issue from '../Issue/index'
+import {vedioArr} from '../../page/data'
 interface State  { // state 类型审查
  
 }
@@ -36,11 +37,12 @@ class Anthology extends React.Component<Props,State> {
           </div>
           <div className="scroll_box">
           <div className="box">
-             <Issue push={this.props.push}/>
-             <Issue push={this.props.push}/>
-             <Issue push={this.props.push}/>
-             <Issue push={this.props.push}/>
-             <Issue push={this.props.push}/>
+            { vedioArr.map(item=><Issue
+             key={item.id} 
+             data={item} 
+             push={this.props.push}
+             />) 
+             }
          
             </div>
           </div>

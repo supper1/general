@@ -29,18 +29,44 @@ class Index extends React.Component<Props, State> {
   public async componentWillMount() {
 
   }
+  componentDidMount(){
+    this.div.onplaying=()=>{
+      this.setState({
+        vedioBtnOff: false
+      })
+    }
+    this.div.onended=()=>{
+      this.setState({
+        vedioBtnOff: true
+      })
+    }
+    this.div.onpause=()=>{
+      this.setState({
+        vedioBtnOff: true
+      })
+    }
+
+  }
   public start = (): void => {
 
   }
   viewMore = (): void => {
     this.props.history.push("/list")
   }
+  stopPlay = (): void => {
+    this.div.pause()
+  }
   render() {
     return (
       <div id="Index">
         <div className="preview">
-          <video width="100%" ref={div => { this.div = div }} height="100%" src="http://xueersiimg.xrspy.com/C/Xd11.mp4">
-
+          <video width="100%" onClick={this.stopPlay} 
+          ref={div => { this.div = div }} 
+          height="100%" 
+          src="http://www.raziel.site/general/v222.mp4"
+          poster="http://www.raziel.site/general/pre.jpg"
+          >
+         
           </video>
           {this.state.vedioBtnOff && <div className="playbtn" onClick={() => {
             this.div.play()
@@ -56,9 +82,8 @@ class Index extends React.Component<Props, State> {
         </div>
 
         <Anthology
-         
           push={this.props.history.push} />
-        <Poster />
+        <Poster push={this.props.history.push}/>
       </div>
     );
   }
