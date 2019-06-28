@@ -25,8 +25,7 @@ class Issue extends React.Component<Props,State> {
       this.props.push("/AppVedio?id="+this.props.data.id)
 
     }else{
-      this.props.push("/vedio?id="+this.props.data.id)
-
+      window.location.href = window.location.origin + "/vedio?id="+this.props.data.id
     }
   }
   render() {

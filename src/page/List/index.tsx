@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import Issue from '../../compontents/Issue/index'
 import './index.styl'
 import {vedioArr} from '../data'
-import {islogin,indexIndex} from '../../api/api';
+import {islogin,indexIndex,configShare} from '../../api/api';
 
 
 interface Props extends React.Props<any> {  // 参数类型审查
@@ -29,8 +29,9 @@ class List extends React.Component<Props,State> {
   }
   public async componentWillMount() {
     await islogin()
+    configShare()
     let data:any = await indexIndex()
-    if(!data)return
+    if(!data)return 
     if(data.code===1){
       let viewArr:any = {}
       data.data.map((item:any)=>viewArr[item.id]=item.play)

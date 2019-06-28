@@ -39,6 +39,8 @@ interface State { // state 类型审查
     myGeneral:General;
     commentCount:number;
     commentPraiseList:Array<number>;
-    value:string
+    value:string;
+    moreOff:Boolean;
+    page:number
 }
 export {Props , State}

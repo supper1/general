@@ -6,7 +6,7 @@ import * as homeActions from '../../redux/actions/home'
 import { bindActionCreators } from 'redux';
 import Anthology from '../../compontents/Anthology/index'
 import Poster from '../../compontents/Poster/index'
-// import {islogin} from '../../api/api';
+import {appIndex} from '../../api/api';
 import './index.styl'
 
 interface Props extends React.Props<any> {  // 参数类型审查
@@ -17,7 +17,9 @@ interface Props extends React.Props<any> {  // 参数类型审查
 }
 interface State { // state 类型审查
   off: Boolean,
-  vedioBtnOff: Boolean
+  vedioBtnOff: Boolean,
+  viewArr:any;
+  viewOff:Boolean
 }
 
 
@@ -25,10 +27,21 @@ class AppIndex extends React.Component<Props, State> {
   div: any
   readonly state: State = {
     off: true,
-    vedioBtnOff: true
+    vedioBtnOff: true,
+    viewArr:[],
+    viewOff:false
   }
   public async componentWillMount() {
-    
+    let arr = await appIndex()
+    if(!arr)return
+    if(arr.code===1){
+     
+      this.setState({
+        viewArr:arr.data,
+        viewOff:true
+      })
+       
+    }
   }
   componentDidMount(){
     this.div.onplaying=()=>{
@@ -51,7 +64,7 @@ class AppIndex extends React.Component<Props, State> {
   public start = (): void => {
 
   }
-  viewMore = (): void => {
+  viewMore = (): void => { 
     this.props.history.push("/list")
   }
   stopPlay = (): void => {
@@ -64,8 +77,8 @@ class AppIndex extends React.Component<Props, State> {
           <video width="100%" onClick={this.stopPlay} 
           ref={div => { this.div = div }} 
           height="100%" 
-          src="http://www.raziel.site/general/v222.mp4"
-          poster="http://www.raziel.site/general/pre.jpg"
+          src="http://xueersiimg.xrspy.com/C/Xd51.mp4"
+          poster="http://xueersiimg.xrspy.com/general/pre.jpg"
           >
          
           </video>
@@ -82,8 +95,11 @@ class AppIndex extends React.Component<Props, State> {
           </div>}
         </div>
 
-        {/* <Anthology
-          push={this.props.history.push} /> */}
+        {this.state.viewOff&& <Anthology
+          push={this.props.history.push}
+          viewArr={this.state.viewArr}
+          type={true}
+          />}
         <Poster push={this.props.history.push}/>
       </div>
     );

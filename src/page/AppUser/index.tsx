@@ -5,7 +5,6 @@ import { match } from "react-router-dom"
 import * as homeActions from '../../redux/actions/home'
 import { bindActionCreators } from 'redux';
 import Issue from '../../compontents/Issue/index'
- 
 import crad_gray from '../../img/crad_gray.png';
 import cameraImg from '../../img/camera.png';
 import qs from 'querystring'

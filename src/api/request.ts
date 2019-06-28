@@ -16,7 +16,7 @@ interface params {
 
 export default async function(props:params){
    
-    Loading.open()
+     
     return fetch(
         baseUrl + props.url,
         {
@@ -27,7 +27,7 @@ export default async function(props:params){
             body: qs.stringify(props.data),
             credentials:'include',
         }).then((response:Body)=>{
-            Loading.close()
+           
 
             return response.json()
         }).then((res:any) => {

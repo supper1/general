@@ -8,7 +8,8 @@ interface State { // state 类型审查
     swiperIndex:number,
 }
 interface Props {
-    push:Function
+    push:Function,
+    type?:Boolean
 }
 class Poster extends React.Component<Props,State> {
 
@@ -20,9 +21,11 @@ class Poster extends React.Component<Props,State> {
     }
     componentDidMount() {
         let _this = this
+
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 'auto',
-            spaceBetween: -35,
+            spaceBetween: 0,
+            initialSlide:1,
             width: window.innerWidth,
             centeredSlides: true,
             pagination: {
@@ -31,8 +34,9 @@ class Poster extends React.Component<Props,State> {
             },
             on: {
                 slideChangeTransitionEnd: ()=>{
+                    if(!swiper)return
                    _this.setState({
-                    swiperIndex:swiper.activeIndex
+                    swiperIndex:swiper.activeIndex 
                    })
                 },
               },
@@ -40,7 +44,11 @@ class Poster extends React.Component<Props,State> {
 
     }
     gotoUser = (id:number):void=>{
-        this.props.push("/user?id="+id)
+        if(this.props.type){
+            this.props.push("/AppUser?id="+id)
+        }else{
+            this.props.push("/user?id="+id)
+        }
     }
     render() {
         return (

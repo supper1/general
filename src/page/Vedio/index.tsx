@@ -13,7 +13,7 @@ import './index.styl'
 import TweenMax from 'gsap';
 import {Props,State} from './index.d'
 import {vedioArr,videoData} from '../data'
-import {islogin,generalInfo,addGeneralPraise,addCommentPraise,addComment} from '../../api/api';
+import {islogin,generalInfo,addGeneralPraise,addCommentPraise,addComment,generalInfoMore,configShare} from '../../api/api';
 
 import qs from 'querystring';
 
@@ -36,7 +36,7 @@ class Vedio extends React.Component<Props, State> {
                 "praise": 0
             }
         ],
-        "myPraise":[
+        myPraise:[
             {
                 "commentId":1,
                 "id":1
@@ -60,16 +60,17 @@ class Vedio extends React.Component<Props, State> {
             id:0,
             praise:0
         },
-        value:""
+        value:"",
+        moreOff:true,
+        page:1
     }
     public async componentWillMount() {
         await islogin()
-
+        configShare()
         window.onscroll=()=>{ // 监听页面滚动
             if(window.scrollY>(window.innerWidth*2.6-window.innerHeight)){
                 this.setState({
                     inputOff:false,
-
                 })
             }else{
                 this.setState({
@@ -84,8 +85,9 @@ class Vedio extends React.Component<Props, State> {
                 //窗口可视范围高度
                 var clientHeight = window.innerHeight || Math.min(document.documentElement.clientHeight,document.body.clientHeight);
                 
-                if(clientHeight + scrollTop >= scrollHeight){
-                    console.log("===加载更多内容……===");
+                if(clientHeight + scrollTop >= scrollHeight&&this.state.moreOff){
+                    
+                     this.getMore()
                 }
          }
          let url: string = window.location.search.replace('?', '')
@@ -104,10 +106,38 @@ class Vedio extends React.Component<Props, State> {
               Comments:data.data.commentList,
               commentPraiseList:data.data.commentPraiseList
             })
+            if(data.data.commentList.length<15){
+                this.setState({
+                    moreOff:false
+                })
+            }
          }
     }
     public back = (): void => { // 返回
         this.props.history.goBack()
+    }
+    getMore=async ()=>{
+        let page = this.state.page+1;
+        this.setState({
+            page
+        })
+        let res = await generalInfoMore(this.state.id,page)
+        if(!res)return
+        if(res.code===1){
+            let data = this.state.Comments
+            if(res.data.length<15){
+                this.setState({
+                    moreOff:false
+                })
+            }
+             res.data.map((item:any)=>{
+                 data.push(item)
+             })
+             this.setState({
+                Comments:data
+             })
+        }
+
     }
     scrollto = ():void => { // 页面滚动
         window.scrollTo(0, window.innerWidth*2.4);
@@ -192,15 +222,15 @@ class Vedio extends React.Component<Props, State> {
                        </div>
                         <div className="icon_box">
                             <div className="icon_item">
-                                <img src={okImg} ref={div=>this.isokDom=div} alt="点赞" onClick={this.isok}/>
-                                <span>
-                                    {this.state.myGeneral.praise}
-                                </span>
-                            </div>
-                            <div className="icon_item">
                                 <img alt="播放量" src={viewImg} />
                                 <span>
                                 {this.state.myGeneral.play}
+                                </span>
+                            </div>
+                            <div className="icon_item">
+                                <img src={okImg} ref={div=>this.isokDom=div} alt="点赞" onClick={this.isok}/>
+                                <span>
+                                    {this.state.myGeneral.praise}
                                 </span>
                             </div>
                         </div>

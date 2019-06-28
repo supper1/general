@@ -12,7 +12,8 @@ interface viewDate{
 }
 interface Props{
     push:Function,
-    viewArr:Array<viewDate>
+    viewArr:Array<viewDate>,
+    type?:Boolean
 }
 
 
@@ -24,13 +25,19 @@ class Anthology extends React.Component<Props,State> {
   public async componentWillMount() {
     let data:any = {}
     this.props.viewArr.map((item:any)=>data[item.id]=item.play)
-    this.setState({
+    this.setState({ 
       data
     })
    
   }
   viewMore = ():void=>{
-    this.props.push("/list")
+    if(this.props.type){
+      this.props.push("/AppList")
+      
+    }else{
+      this.props.push("/list")
+
+    }
   }
   render() {
     return (
@@ -51,6 +58,7 @@ class Anthology extends React.Component<Props,State> {
              data={item} 
              push={this.props.push}
              viewNum={this.state.data[item.id]}
+             type={this.props.type}
              />) 
              }
          

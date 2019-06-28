@@ -10,7 +10,7 @@ import cameraImg from '../../img/camera.png';
 import qs from 'querystring'
 import './index.styl'
 import {userArr,userData,vedioArr} from '../data';
-import {islogin,indexIndex} from '../../api/api';
+import {islogin,indexIndex,configShare} from '../../api/api';
 
 interface Props extends React.Props<any> {  // 参数类型审查
   match: match;
@@ -47,6 +47,7 @@ class User extends React.Component<Props, State> {
       })
     }
     await islogin()
+    configShare()
     let data:any = await indexIndex()
     if(!data)return
     if(data.code===1){

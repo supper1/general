@@ -6,7 +6,7 @@ import * as homeActions from '../../redux/actions/home'
 import { bindActionCreators } from 'redux';
 import Anthology from '../../compontents/Anthology/index'
 import Poster from '../../compontents/Poster/index'
-import {islogin,indexIndex} from '../../api/api';
+import {islogin,indexIndex,configShare} from '../../api/api';
 import './index.styl'
 
 interface Props extends React.Props<any> {  // 参数类型审查
@@ -33,6 +33,7 @@ class Index extends React.Component<Props, State> {
   }
   public async componentWillMount() {
     await islogin()
+    configShare()
     let data:any = await indexIndex()
     if(!data)return
     if(data.code===1){
@@ -73,7 +74,7 @@ class Index extends React.Component<Props, State> {
   }
   render() {
     return (
-      <div id="Index">
+      <div id="Index"> 
         <div className="preview">
           <video width="100%" onClick={this.stopPlay} 
           ref={div => { this.div = div }} 

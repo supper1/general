@@ -20,7 +20,7 @@ export const vedioArr:Array<videoData> = [
         id:1,
         order:"第一期",
         title:"齐路通 自强不息",
-        dec:"诉说童年艰苦过往。",
+        dec:"诉说童年艰苦过往",
         userId:2,
         url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
         imgUrl:"http://xueersiimg.xrspy.com/general/v1.png"
@@ -29,7 +29,7 @@ export const vedioArr:Array<videoData> = [
         id:2,
         order:"第二期",
         title:"刘阁忠 乐于助人",
-        dec:"传承雷锋精神助人为乐。",
+        dec:"传承雷锋精神助人为乐",
         userId:6,
         url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
         imgUrl:"http://xueersiimg.xrspy.com/general/v2.png"
@@ -38,7 +38,7 @@ export const vedioArr:Array<videoData> = [
         id:3,
         order:"第三期",
         title:"杨位环 自信乐观",
-        dec:"沉浸书海书写自信人生。",
+        dec:"沉浸书海书写自信人生",
         userId:5,
         url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
         imgUrl:"http://xueersiimg.xrspy.com/general/v3.png"
@@ -47,7 +47,7 @@ export const vedioArr:Array<videoData> = [
         id:4,
         order:"第四期",
         title:"刘文清 家国情怀",
-        dec:"豪情壮志诉家国情怀。",
+        dec:"豪情壮志诉家国情怀",
         userId:1,
         url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
         imgUrl:"http://xueersiimg.xrspy.com/general/v4.png"
@@ -56,7 +56,7 @@ export const vedioArr:Array<videoData> = [
         id:5,
         order:"第五期",
         title:"鲍 奇 临危不惧",
-        dec:"身处战场临危不乱。",
+        dec:"身处战场临危不乱",
         userId:4,
         url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
         imgUrl:"http://xueersiimg.xrspy.com/general/v5.png"
@@ -65,7 +65,7 @@ export const vedioArr:Array<videoData> = [
         id:6,
         order:"第六期",
         title:"邓楚润 克己复礼",
-        dec:"言传身教礼仪规范。",
+        dec:"言传身教礼仪规范",
         userId:3,
         url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
         imgUrl:"http://xueersiimg.xrspy.com/general/v6.png"
@@ -74,7 +74,7 @@ export const vedioArr:Array<videoData> = [
         id:7,
         order:"第七期",
         title:"程家荣 孝悌之德",
-        dec:"忆童年往事讲家教家风。",
+        dec:"忆童年往事讲家教家风",
         userId:7,
         url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
         imgUrl:"http://xueersiimg.xrspy.com/general/v7.png"
@@ -83,7 +83,7 @@ export const vedioArr:Array<videoData> = [
         id:8,
         order:"第八期",
         title:"刘文清 勤奋乐学",
-        dec:"勤奋乐学实现梦想。",
+        dec:"勤奋乐学实现梦想",
         userId:1,
         url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
         imgUrl:"http://xueersiimg.xrspy.com/general/v8.png"
