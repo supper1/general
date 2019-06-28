@@ -5,12 +5,12 @@ import { match } from "react-router-dom"
 import * as homeActions from '../../redux/actions/home'
 import { bindActionCreators } from 'redux';
 import Issue from '../../compontents/Issue/index'
-import user4 from '../../img/user4.jpg';
 import crad_gray from '../../img/crad_gray.png';
 import cameraImg from '../../img/camera.png';
 import qs from 'querystring'
 import './index.styl'
 import {userArr,userData,vedioArr} from '../data';
+import {islogin,indexIndex} from '../../api/api';
 
 interface Props extends React.Props<any> {  // 参数类型审查
   match: match;
@@ -19,15 +19,19 @@ interface Props extends React.Props<any> {  // 参数类型审查
   home: any
 }
 interface State { // state 类型审查
-  id:number,
-  data:userData
+  id:number;
+  data:userData;
+  viewArr:any;
+  viewOff:Boolean
 }
 
 
 class User extends React.Component<Props, State> {
   readonly state: State = {
     id:0,
-    data:null
+    data:null,
+    viewArr:{},
+    viewOff:false
   }
   public async componentWillMount() {
     let url: string = window.location.search.replace('?', '')
@@ -41,6 +45,18 @@ class User extends React.Component<Props, State> {
         data:arr[0],
         id
       })
+    }
+    await islogin()
+    let data:any = await indexIndex()
+    if(!data)return
+    if(data.code===1){
+      let viewArr:any = {}
+      data.data.map((item:any)=>viewArr[item.id]=item.play)
+      this.setState({
+        viewArr,
+        viewOff:true
+      })
+       
     }
 
   }

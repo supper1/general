@@ -6,7 +6,7 @@ import * as homeActions from '../../redux/actions/home'
 import { bindActionCreators } from 'redux';
 import Anthology from '../../compontents/Anthology/index'
 import Poster from '../../compontents/Poster/index'
-import {islogin} from '../../api/api';
+import {islogin,indexIndex} from '../../api/api';
 import './index.styl'
 
 interface Props extends React.Props<any> {  // 参数类型审查
@@ -17,18 +17,32 @@ interface Props extends React.Props<any> {  // 参数类型审查
 }
 interface State { // state 类型审查
   off: Boolean,
-  vedioBtnOff: Boolean
+  vedioBtnOff: Boolean,
+  viewArr:any,
+  viewOff:Boolean
 }
 
 
 class Index extends React.Component<Props, State> {
   div: any
   readonly state: State = {
-    off: true,
-    vedioBtnOff: true
+    off: true, 
+    vedioBtnOff: true,
+    viewArr:[],
+    viewOff:false
   }
   public async componentWillMount() {
-    islogin()
+    await islogin()
+    let data:any = await indexIndex()
+    if(!data)return
+    if(data.code===1){
+     
+      this.setState({
+        viewArr:data.data,
+        viewOff:true
+      })
+       
+    }
   }
   componentDidMount(){
     this.div.onplaying=()=>{
@@ -82,8 +96,10 @@ class Index extends React.Component<Props, State> {
           </div>}
         </div>
 
-        <Anthology
-          push={this.props.history.push} />
+       {this.state.viewOff&& <Anthology
+          push={this.props.history.push}
+          viewArr={this.state.viewArr}
+          />}
         <Poster push={this.props.history.push}/>
       </div>
     );

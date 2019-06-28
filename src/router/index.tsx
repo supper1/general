@@ -62,8 +62,11 @@ const AppRouter: React.FC = () => {
                         <Route path='/vedio' exact component={Vedio} />
                         <Route path='/User' exact component={User} />
                
-
-                        <Route render={() => <Redirect to="/" />} />
+                        <Route path='/AppIndex' exact component={AppIndex} />
+                        <Route path='/AppList' exact component={AppList} />
+                        <Route path='/AppVedio' exact component={AppVedio} />
+                        <Route path='/AppUser' exact component={AppUser} />
+                        <Route render={() => <Redirect to="/AppIndex" />} />
                     </Switch>
                 </div>
             </Suspense>

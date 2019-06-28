@@ -24,7 +24,7 @@ class Vedio extends React.Component<Props, State> {
             {
                 "createTime": "2019-06-25",
                 "student": {
-                    "imgUrl": "http:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/Q0j4TwGTfTK7H70jhKO2oEyKkLB4EqHEJARTZxfCsLHbeN00gkoJPpIUTib8mx6kdr97FqYZo78a9tNibF2zdDlw\/132",
+                    "imgUrl": "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK7H70jhKO2oEyKkLB4EqHEJARTZxfCsLHbeN00gkoJPpIUTib8mx6kdr97FqYZo78a9tNibF2zdDlw/132",
                     "nickName": "李锋️"
                 },
                 "id": 1,
@@ -119,13 +119,13 @@ class Vedio extends React.Component<Props, State> {
                        </div>
                         <div className="icon_box">
                             <div className="icon_item">
-                                <img src={okImg} ref={div=>this.isokDom=div} onClick={this.isok}/>
+                                <img src={okImg} ref={div=>this.isokDom=div} alt="点赞" onClick={this.isok}/>
                                 <span>
                                     195123312
                                 </span>
                             </div>
                             <div className="icon_item">
-                                <img src={viewImg} />
+                                <img alt="播放量" src={viewImg} />
                                 <span>
                                     19512342
                                 </span>
@@ -136,7 +136,7 @@ class Vedio extends React.Component<Props, State> {
                         本期介绍：{this.state.data.dec}
                     </div>
                 </div>
-                <Anthology push={this.props.history.push} />
+                {/* <Anthology push={this.props.history.push} /> */}
                 <Poster push={this.props.history.push}/>
                 <div className={this.state.inputOff?"comment_box":"comment_box active"}>
                     <span className="comment_text" onClick={this.scrollto}>

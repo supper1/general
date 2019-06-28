@@ -1,24 +1,33 @@
 import React from 'react';
 import menuImg from '../../img/menu.png';
-import user4 from '../../img/user4.jpg'
 import './index.styl'
 import Issue from '../Issue/index'
 import {vedioArr} from '../../page/data'
 interface State  { // state 类型审查
- 
+  data:any
+}
+interface viewDate{
+  id:number,
+  play:number
 }
 interface Props{
-    push:Function
+    push:Function,
+    viewArr:Array<viewDate>
 }
 
 
 class Anthology extends React.Component<Props,State> {
  
   readonly state: State = {
- 
+    data:{}
   }
   public async componentWillMount() {
- 
+    let data:any = {}
+    this.props.viewArr.map((item:any)=>data[item.id]=item.play)
+    this.setState({
+      data
+    })
+   
   }
   viewMore = ():void=>{
     this.props.push("/list")
@@ -41,6 +50,7 @@ class Anthology extends React.Component<Props,State> {
              key={item.id} 
              data={item} 
              push={this.props.push}
+             viewNum={this.state.data[item.id]}
              />) 
              }
          

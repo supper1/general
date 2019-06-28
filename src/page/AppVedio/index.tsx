@@ -69,13 +69,13 @@ class AppVedio extends React.Component<Props, State> {
                        </div>
                         <div className="icon_box">
                             <div className="icon_item">
-                                <img src={okImg} ref={div=>this.isokDom=div} onClick={this.isok}/>
+                                <img src={okImg} alt="点赞" ref={div=>this.isokDom=div} onClick={this.isok}/>
                                 <span>
                                     195123312
                                 </span>
                             </div>
                             <div className="icon_item">
-                                <img src={viewImg} />
+                                <img src={viewImg} alt="播放量"/>
                                 <span>
                                     19512342
                                 </span>
@@ -86,7 +86,7 @@ class AppVedio extends React.Component<Props, State> {
                         本期介绍：{this.state.data.dec}
                     </div>
                 </div>
-                <Anthology push={this.props.history.push} />
+                {/* <Anthology push={this.props.history.push} /> */}
                 <Poster push={this.props.history.push}/>
          
             </div>

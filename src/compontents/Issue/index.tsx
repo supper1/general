@@ -1,5 +1,5 @@
 import React from 'react';
-import user4 from '../../img/user4.jpg'
+import viewImg from '../../img/view.png';
 import './index.styl'
 import {videoData} from '../../page/data';
 interface State  { // state 类型审查
@@ -7,7 +7,9 @@ interface State  { // state 类型审查
 }
 interface Props  { // state 类型审查
     push:Function;
-    data:videoData
+    data:videoData;
+    type?:Boolean;
+    viewNum?:number
 }
 
 class Issue extends React.Component<Props,State> {
@@ -16,14 +18,24 @@ class Issue extends React.Component<Props,State> {
  
   }
   public async componentWillMount() {
-      
+     
   }
   gotoVedio = ():void=>{
-    this.props.push("/vedio?id="+this.props.data.id)
+    if(this.props.type){
+      this.props.push("/AppVedio?id="+this.props.data.id)
+
+    }else{
+      this.props.push("/vedio?id="+this.props.data.id)
+
+    }
   }
   render() {
     return (
       <div id="Issue" onClick={this.gotoVedio}>
+        <div className="view_num">
+          <img src={viewImg} alt="view"/>
+          <span>{this.props.viewNum}</span>
+        </div>
                  <div className="img_box"> 
                  <img src={this.props.data.imgUrl} alt="封面图" className="userImg"/>
                  <div className="shadow">
