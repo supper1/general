@@ -14,7 +14,7 @@ interface Props {
 class Poster extends React.Component<Props,State> {
 
     readonly state: State = {
-        swiperIndex:0,
+        swiperIndex:1,
     }
     public async componentWillMount() {
 
@@ -28,6 +28,7 @@ class Poster extends React.Component<Props,State> {
             initialSlide:1,
             width: window.innerWidth,
             centeredSlides: true,
+            loop : true,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -36,8 +37,9 @@ class Poster extends React.Component<Props,State> {
                 slideChangeTransitionEnd: ()=>{
                     if(!swiper)return
                    _this.setState({
-                    swiperIndex:swiper.activeIndex 
+                    swiperIndex:swiper.realIndex 
                    })
+                
                 },
               },
         });

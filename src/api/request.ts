@@ -5,10 +5,9 @@
  */
 import 'whatwg-fetch'
 import qs  from 'querystring'
-import Loading from '../compontents/Loading'
 import Cookies from 'js-cookie'
+// const baseUrl:string = 'http://read.xrspy.com/api'; // 接口baseUrl
 const baseUrl:string = ''; // 接口baseUrl
-// const baseUrl:string = ''; // 接口baseUrl
 interface params {
     url:string,
     data:any,

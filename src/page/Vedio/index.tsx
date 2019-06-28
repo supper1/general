@@ -190,6 +190,7 @@ class Vedio extends React.Component<Props, State> {
         this.setState({
             shareOff:true
         })
+        window.scrollTo(0, window.innerWidth*.55);
     }
     closeShare = ():void => { // 关闭分享
         this.setState({
@@ -315,7 +316,7 @@ class Vedio extends React.Component<Props, State> {
 
              {!this.state.inputOff&&<div className="input_box">
                     <img 
-                    src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK7H70jhKO2oEyKkLB4EqHEJARTZxfCsLHbeN00gkoJPpIUTib8mx6kdr97FqYZo78a9tNibF2zdDlw/132" 
+                    src={this.props.home.userdata.imgUrl} 
                     alt="头像"/>
 
                     <input onBlur={this.scroll} type="text" value={this.state.value} className="input" onChange={e=>this.setState({value:e.target.value})}/>
@@ -325,7 +326,7 @@ class Vedio extends React.Component<Props, State> {
 
                 </div>}
                 <div className="tip_box" ref={div=>this.tipDom=div}>
-                您的留言已经发布成功,需要后台审核,审核成功后即可显示                     
+                您的留言已发布成功,后台审核通过后即可显示                     
                 </div>
             </div>
         );
