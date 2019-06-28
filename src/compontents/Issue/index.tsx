@@ -1,5 +1,5 @@
 import React from 'react';
-import viewImg from '../../img/view.png';
+import viewImg from '../../img/viewb.png';
 import './index.styl'
 import {videoData} from '../../page/data';
 interface State  { // state 类型审查

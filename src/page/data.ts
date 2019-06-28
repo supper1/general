@@ -22,8 +22,8 @@ export const vedioArr:Array<videoData> = [
         title:"齐路通 自强不息",
         dec:"诉说童年艰苦过往。",
         userId:2,
-        url:"http://www.raziel.site/general/v222.mp4",
-        imgUrl:"http://www.raziel.site/general/v1.png"
+        url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
+        imgUrl:"http://xueersiimg.xrspy.com/general/v1.png"
     },
     {
         id:2,
@@ -31,8 +31,8 @@ export const vedioArr:Array<videoData> = [
         title:"刘阁忠 乐于助人",
         dec:"传承雷锋精神助人为乐。",
         userId:6,
-        url:"http://www.raziel.site/general/v222.mp4",
-        imgUrl:"http://www.raziel.site/general/v2.png"
+        url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
+        imgUrl:"http://xueersiimg.xrspy.com/general/v2.png"
     },
     {
         id:3,
@@ -40,8 +40,8 @@ export const vedioArr:Array<videoData> = [
         title:"杨位环 自信乐观",
         dec:"沉浸书海书写自信人生。",
         userId:5,
-        url:"http://www.raziel.site/general/v222.mp4",
-        imgUrl:"http://www.raziel.site/general/v3.png"
+        url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
+        imgUrl:"http://xueersiimg.xrspy.com/general/v3.png"
     },
     {
         id:4,
@@ -49,8 +49,8 @@ export const vedioArr:Array<videoData> = [
         title:"刘文清 家国情怀",
         dec:"豪情壮志诉家国情怀。",
         userId:1,
-        url:"http://www.raziel.site/general/v222.mp4",
-        imgUrl:"http://www.raziel.site/general/v4.png"
+        url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
+        imgUrl:"http://xueersiimg.xrspy.com/general/v4.png"
     },
     {
         id:5,
@@ -58,8 +58,8 @@ export const vedioArr:Array<videoData> = [
         title:"鲍 奇 临危不惧",
         dec:"身处战场临危不乱。",
         userId:4,
-        url:"http://www.raziel.site/general/v222.mp4",
-        imgUrl:"http://www.raziel.site/general/v5.png"
+        url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
+        imgUrl:"http://xueersiimg.xrspy.com/general/v5.png"
     },
     {
         id:6,
@@ -67,8 +67,8 @@ export const vedioArr:Array<videoData> = [
         title:"邓楚润 克己复礼",
         dec:"言传身教礼仪规范。",
         userId:3,
-        url:"http://www.raziel.site/general/v222.mp4",
-        imgUrl:"http://www.raziel.site/general/v6.png"
+        url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
+        imgUrl:"http://xueersiimg.xrspy.com/general/v6.png"
     },
     {
         id:7,
@@ -76,8 +76,8 @@ export const vedioArr:Array<videoData> = [
         title:"程家荣 孝悌之德",
         dec:"忆童年往事讲家教家风。",
         userId:7,
-        url:"http://www.raziel.site/general/v222.mp4",
-        imgUrl:"http://www.raziel.site/general/v7.png"
+        url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
+        imgUrl:"http://xueersiimg.xrspy.com/general/v7.png"
     },
     {
         id:8,
@@ -85,8 +85,8 @@ export const vedioArr:Array<videoData> = [
         title:"刘文清 勤奋乐学",
         dec:"勤奋乐学实现梦想。",
         userId:1,
-        url:"http://www.raziel.site/general/v222.mp4",
-        imgUrl:"http://www.raziel.site/general/v8.png"
+        url:"http://xueersiimg.xrspy.com/C/Xd51.mp4",
+        imgUrl:"http://xueersiimg.xrspy.com/general/v8.png"
     },
 ]
 export const userArr:Array<userData> = [
@@ -101,7 +101,7 @@ export const userArr:Array<userData> = [
         队第六师成为一名战机飞行员，曾任中队长、大队长、团长、六师第六任师长，
         飞行技术为特级，先后荣立三等功4次、二等功及多种先进称号。
         `,
-        imgUrl:"http://www.raziel.site/general/user4.jpg"
+        imgUrl:"http://xueersiimg.xrspy.com/general/user1.jpg"
     },
     {
         id:2,
@@ -115,7 +115,7 @@ export const userArr:Array<userData> = [
         1999年任南京军区空军副参谋长，2004年退休后致力于东北经济文化促进工
         作，现任上海东北经济文化发展促进会常务副会长兼秘书长        
         `,
-        imgUrl:"http://www.raziel.site/general/user4.jpg"
+        imgUrl:"http://xueersiimg.xrspy.com/general/user2.jpg"
     },
     {
         id:3,
@@ -126,7 +126,7 @@ export const userArr:Array<userData> = [
         任战士、班长、技术员、干事、副处长、办公室主任、师政委、军政治部主任、
         沈阳军区空军政治部主任等职。中国书法家协会会员              
         `,
-        imgUrl:"http://www.raziel.site/general/user4.jpg"
+        imgUrl:"http://xueersiimg.xrspy.com/general/user3.jpg"
     },
     {
         id:4,
@@ -137,7 +137,7 @@ export const userArr:Array<userData> = [
         月入伍，曾参加抗日战争、解放战争、抗美援朝战争和解放东南沿海，屡立战功。
         2015年9月3日，作为抗战老兵参加“9•3”大阅兵                      
         `,
-        imgUrl:"http://www.raziel.site/general/user4.jpg"
+        imgUrl:"http://xueersiimg.xrspy.com/general/user4.jpg"
     },
     {
         id:5,
@@ -151,7 +151,7 @@ export const userArr:Array<userData> = [
         海基地政治部主任，1999年12月任兰州军区空军政治部副主任。退休后定居
         上海。2001年7月晋升为空军少将军衔                              
         `,
-        imgUrl:"http://www.raziel.site/general/user4.jpg"
+        imgUrl:"http://xueersiimg.xrspy.com/general/user5.jpg"
     },
     {
         id:6,
@@ -166,7 +166,7 @@ export const userArr:Array<userData> = [
         2007年9月退役。多次参加组织了舰艇训练和战备演习。2003年8月1日被
         中央军委授予海军少将军衔。                                    
         `,
-        imgUrl:"http://www.raziel.site/general/user4.jpg"
+        imgUrl:"http://xueersiimg.xrspy.com/general/user6.jpg"
     },
     {
         id:7,
@@ -182,6 +182,6 @@ export const userArr:Array<userData> = [
         予少将军衔，2003年3月，任东海舰队海军航空兵政委，2005年，任东海舰
         队副政委兼东海舰队海军航空兵政委。                                            
         `,
-        imgUrl:"http://www.raziel.site/general/user4.jpg"
+        imgUrl:"http://xueersiimg.xrspy.com/general/user7.jpg"
     },
 ]

@@ -7,10 +7,10 @@ import * as actionTypes from '../redux/constants/actionTypes';
 let wx = require("weixin-js-sdk"); //引入微信jssdk文件
 let dispatch: Dispatch<AnyAction> = store.dispatch
       
-export async function getInfoByOpenId(openid: string,cityId?:string) { // 根据openid获取个人信息,城市信息
+export async function getInfoByOpenId(openid: string,cityId?:number) { // 根据openid获取个人信息,城市信息
     return request({
         url: `/auth/getInfoByOpenId`,
-        data: { openid , cityId}
+        data: { openid , cityId} 
     });
 }
 
@@ -39,7 +39,8 @@ export async function islogin() { // 登录验证接口
         if (urlObj.open_id && urlObj.open_id.length > 20) {
 
             return new Promise((resolve, reject) => {
-                getInfoByOpenId(urlObj.open_id,urlObj.cityId) // 通过openid去获取用户数据
+                let cityId = urlObj.cityId||1
+                getInfoByOpenId(urlObj.open_id,cityId) // 通过openid去获取用户数据
                     .then(logins => {
                         if (logins && logins.code === 1) {
                             let data = logins.data
@@ -58,7 +59,9 @@ export async function islogin() { // 登录验证接口
             })
         } else { // 跳转北京获取openid
             return new Promise((resolve, reject) => {
-                window.location.href = 'https://minsight.speiyou.com/i/usercenter/api/wxoauth?app_id=wx17745458a8a5358c&callback_url=' + window.location.origin+"?cityId="+urlObj.cityId
+                let cityId = urlObj.cityId||1
+                window.location.href = 'https://minsight.speiyou.com/i/usercenter/api/wxoauth?app_id=wx17745458a8a5358c&callback_url=' +
+                 window.location.origin+"?cityId="+cityId
             });
         }
     }
@@ -132,7 +135,7 @@ export async function indexIndex() { // 查询所有的将军播放量
         data: {}
     });
 }
-export async function generalInfo(generalId:number) { // 查询所有的将军播放量
+export async function generalInfo(generalId:number) { // 获取单个视频的详情
     return request({
         url: `/index/generalInfo`,
         data: {generalId}

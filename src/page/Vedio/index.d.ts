@@ -23,13 +23,22 @@ interface Praise{ // 我的点赞
     commentId:number;
     id:number
 }
-
+interface General{
+    id:number;
+    play:number;
+    praise:number
+}
 interface State { // state 类型审查
     inputOff:Boolean;
     Comments:Array<Comment>;
     myPraise:Array<Praise>;
     shareOff:Boolean;
     data:videoData;
-    id:number
+    id:number;
+    generals:any;
+    myGeneral:General;
+    commentCount:number;
+    commentPraiseList:Array<number>;
+    value:string
 }
 export {Props , State}

@@ -78,8 +78,8 @@ class Index extends React.Component<Props, State> {
           <video width="100%" onClick={this.stopPlay} 
           ref={div => { this.div = div }} 
           height="100%" 
-          src="http://www.raziel.site/general/v222.mp4"
-          poster="http://www.raziel.site/general/pre.jpg"
+          src="http://xueersiimg.xrspy.com/C/Xd51.mp4"
+          poster="http://xueersiimg.xrspy.com/general/pre.jpg"
           >
          
           </video>

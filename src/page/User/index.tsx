@@ -104,9 +104,9 @@ class User extends React.Component<Props, State> {
             相关德育课程
             </span>
         </div>
-        <div className="about_content">
-        {vedioArr.map(item=>(item.userId===this.state.id&&<Issue key={item.id} data={item} push={this.props.history.push}/>))}
-        </div>
+       {this.state.viewOff&&<div className="about_content">
+        {vedioArr.map(item=>(item.userId===this.state.id&&<Issue viewNum={this.state.viewArr[item.id]} key={item.id} data={item} push={this.props.history.push}/>))}
+        </div>}
       </div>
     );
   }
