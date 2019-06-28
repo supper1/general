@@ -4,9 +4,14 @@ import Store from '../redux/store/Store';
 import * as actionTypes from '../redux/constants/actionTypes'
 import "../compontents/Loading/index.styl"
 const Index = React.lazy(() => import("../page/Index"));
+const AppIndex = React.lazy(() => import("../page/AppIndex"));
 const List = React.lazy(() => import("../page/List"));
+const AppList = React.lazy(() => import("../page/AppList"));
 const Vedio = React.lazy(() => import("../page/Vedio"));
+const AppVedio = React.lazy(() => import("../page/AppVedio"));
 const User = React.lazy(() => import("../page/User"));
+const AppUser = React.lazy(() => import("../page/AppUser"));
+
 
 
 const AppRouter: React.FC = () => {

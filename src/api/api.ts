@@ -156,6 +156,47 @@ export async function addComment(generalId:number,content:string) { // 评论
         data: {generalId,content}
     });
 }
+export async function addCommentPraise(commentId:number) { // 给评论点赞
+    return request({
+        url: `/index/addCommentPraise`,
+        data: {commentId}
+    });
+}
+export async function appIndex() { // app中查询所有的将军播放量
+    return request({
+        url: `/app/index`,
+        data: {}
+    });
+}
+export async function appGeneralInfo(generalId:number) { // app中根据将军id获取相关信息
+    return request({
+        url: `/app/generalInfo`,
+        data: {generalId}
+    });
+}
+export async function appAddGeneralPlay(generalId:number) { // app中增加将军的播放量
+    return request({
+        url: `/app/addGeneralPlay`,
+        data: {generalId}
+    });
+}
+export async function appAddGeneralPraise(generalId:number) { // app中给将军点赞
+    return request({
+        url: `/app/addGeneralPraise`,
+        data: {generalId}
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
