@@ -1,6 +1,5 @@
 #Vedio {
     width: 100vw;
-    min-height: 424vw
     .vedio_box {
         width: 100vw;
         height: 56.1vw;
@@ -9,8 +8,8 @@
     .vedio_dec {
         width: 89.1vw;
         height: 22vw;
-        border-bottom: 1px solid #808080;
-        margin: 3vw auto 0;
+        border-bottom: 1px dotted #ccc;
+        margin: 4vw auto 0;
         margin-bottom: 4.5vw;
 
         .title_box {
@@ -23,7 +22,7 @@
 
             .title {
                 width: 58vw;
-                font-size: 3.9vw;
+                font-size: 4.6vw;
                 font-weight: bold;
                 color: #333333;
             }
@@ -62,7 +61,7 @@
             width: 100%;
             margin-top: 2.5vw;
             line-height: 5.5vw;
-            font-size: 3vw;
+            font-size: 3.6vw;
             color: #7e7e7e;
             
         }
@@ -82,7 +81,7 @@
         align-items: center;
 
         .comment_text {
-            width: 13vw;
+            width: 14vw;
             font-size: 3.2vw;
             color: #444;
             margin-left: 5.6vw;
@@ -240,6 +239,10 @@
             border: none;
             outline: none
         }
+        .submit_active{
+            background: #bf2920
+            color: #ffffff
+            }
     }
     .share_box{
         width 100vw
@@ -250,5 +253,19 @@
         top 0
         left 0
         z-index: 9999999
+        }
+    .tip_box{
+        width 50vw
+        font-size 3vw
+        color: #888
+        padding 2vw
+        border:1px solid #888
+        background: #ffffff
+        position fixed
+        top -10vh
+        left 24vw
+        z-index: 99999999
+        border-radius: 1vw
+        opacity :0
         }
 }

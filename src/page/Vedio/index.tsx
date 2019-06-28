@@ -164,6 +164,14 @@ class Vedio extends React.Component<Props, State> {
             myGeneral
         })
     }
+    scroll = () => {
+
+        setTimeout(function () {
+            var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+            window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+        }, 100);
+
+    }
     commentLike = (id:number,index:number):void => { // 给评论点赞
         if(this.state.commentPraiseList.indexOf(id)==-1){
             addCommentPraise(id) 
@@ -222,15 +230,15 @@ class Vedio extends React.Component<Props, State> {
                        </div>
                         <div className="icon_box">
                             <div className="icon_item">
-                                <img alt="播放量" src={viewImg} />
-                                <span>
-                                {this.state.myGeneral.play}
-                                </span>
-                            </div>
-                            <div className="icon_item">
                                 <img src={okImg} ref={div=>this.isokDom=div} alt="点赞" onClick={this.isok}/>
                                 <span>
                                     {this.state.myGeneral.praise}
+                                </span>
+                            </div>
+                            <div className="icon_item">
+                                <img alt="播放量" src={viewImg} />
+                                <span>
+                                {this.state.myGeneral.play}
                                 </span>
                             </div>
                         </div>
@@ -310,7 +318,7 @@ class Vedio extends React.Component<Props, State> {
                     src="http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK7H70jhKO2oEyKkLB4EqHEJARTZxfCsLHbeN00gkoJPpIUTib8mx6kdr97FqYZo78a9tNibF2zdDlw/132" 
                     alt="头像"/>
 
-                    <input type="text" value={this.state.value} className="input" onChange={e=>this.setState({value:e.target.value})}/>
+                    <input onBlur={this.scroll} type="text" value={this.state.value} className="input" onChange={e=>this.setState({value:e.target.value})}/>
                     <button className={this.state.value==""?"submit":"submit submit_active"} onClick={this.submit}>发 表</button>
                 </div>}
                 {this.state.shareOff&&<div onClick={this.closeShare} className="share_box">

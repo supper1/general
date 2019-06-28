@@ -3,8 +3,10 @@ import menuImg from '../../img/menu.png';
 import './index.styl'
 import Issue from '../Issue/index'
 import {vedioArr} from '../../page/data'
+import qs from 'querystring';
 interface State  { // state 类型审查
-  data:any
+  data:any;
+  vedioArr:any
 }
 interface viewDate{
   id:number,
@@ -13,14 +15,13 @@ interface viewDate{
 interface Props{
     push:Function,
     viewArr:Array<viewDate>,
-    type?:Boolean
+    type?:Boolean,   
 }
-
-
 class Anthology extends React.Component<Props,State> {
  
   readonly state: State = {
-    data:{}
+    data:{},
+    vedioArr
   }
   public async componentWillMount() {
     let data:any = {}
@@ -28,7 +29,11 @@ class Anthology extends React.Component<Props,State> {
     this.setState({ 
       data
     })
-   
+    // let url: string = window.location.search.replace('?', '')
+    // let id: number = Number(qs.parse(url).id)   // 获取url里面参数
+    // if(id){
+      
+    // }
   }
   viewMore = ():void=>{
     if(this.props.type){

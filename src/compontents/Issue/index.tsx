@@ -22,8 +22,7 @@ class Issue extends React.Component<Props,State> {
   }
   gotoVedio = ():void=>{
     if(this.props.type){
-      this.props.push("/AppVedio?id="+this.props.data.id)
-
+      window.location.href = window.location.origin + "/AppVedio?id="+this.props.data.id
     }else{
       window.location.href = window.location.origin + "/vedio?id="+this.props.data.id
     }

@@ -16,7 +16,9 @@ interface Student{ // 用户数据类型
  
 interface State { // state 类型审查
     inputOff:Boolean;
- 
+    myGeneral:any;
+    viewOff:Boolean;
+    viewArr:any;
     shareOff:Boolean;
     data:videoData;
     id:number

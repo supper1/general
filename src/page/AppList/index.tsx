@@ -55,6 +55,7 @@ class List extends React.Component<Props,State> {
             key={item.id} 
             data={item} 
             push={this.props.history.push}
+            type={true}
             viewNum={this.state.viewArr[item.id]}
             />) 
             }

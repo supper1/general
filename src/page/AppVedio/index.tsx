@@ -6,12 +6,12 @@ import okImg from '../../img/ok.png'
 import viewImg from '../../img/view.png'
 import Anthology from '../../compontents/Anthology/index'
 import Poster from '../../compontents/Poster/index'
- 
 import './index.styl'
 import TweenMax from 'gsap';
 import {Props,State} from './index.d'
 import {vedioArr,videoData} from '../data'
 import qs from 'querystring';
+import {appGeneralInfo,appAddGeneralPraise} from '../../api/api'
 
 class AppVedio extends React.Component<Props, State> {
     isokDom:any
@@ -20,7 +20,14 @@ class AppVedio extends React.Component<Props, State> {
         inputOff:true,
         shareOff:false,
         data:null,
-        id:0
+        id:0,
+        viewOff:false,
+        myGeneral:{
+            id: 0,
+            play: 0,
+            praise: 0
+        },
+        viewArr:[]
     }
     public async componentWillMount() {
         
@@ -36,6 +43,15 @@ class AppVedio extends React.Component<Props, State> {
               id
             })
          }
+        let res = await appGeneralInfo(id)
+        if(!res)return
+        if(res.code===1){
+            this.setState({
+                viewArr:res.data.generals,
+                myGeneral:res.data.myGeneral,
+                viewOff:true
+            })
+        }
     }
     public back = (): void => {
         this.props.history.goBack()
@@ -45,6 +61,12 @@ class AppVedio extends React.Component<Props, State> {
         TweenMax.to(this.isokDom, 0, { scale:1 })
         TweenMax.killAll();
         TweenMax.from(this.isokDom, 1.2, { scale:1.8 })
+        appAddGeneralPraise(this.state.id)
+        let myGeneral = this.state.myGeneral 
+        myGeneral.praise++
+        this.setState({
+            myGeneral
+        })
     }
     
     
@@ -71,13 +93,13 @@ class AppVedio extends React.Component<Props, State> {
                             <div className="icon_item">
                                 <img src={okImg} alt="点赞" ref={div=>this.isokDom=div} onClick={this.isok}/>
                                 <span>
-                                    195123312
+                                    {this.state.myGeneral.praise}
                                 </span>
                             </div>
                             <div className="icon_item">
                                 <img src={viewImg} alt="播放量"/>
                                 <span>
-                                    19512342
+                                {this.state.myGeneral.play}
                                 </span>
                             </div>
                         </div>
@@ -86,8 +108,12 @@ class AppVedio extends React.Component<Props, State> {
                         本期介绍：{this.state.data.dec}
                     </div>
                 </div>
-                {/* <Anthology push={this.props.history.push} /> */}
-                <Poster push={this.props.history.push}/>
+                {this.state.viewOff&& <Anthology
+                    push={this.props.history.push}
+                    viewArr={this.state.viewArr}
+                    type={true}
+                    />}
+                <Poster push={this.props.history.push} type={true}/>
          
             </div>
         );

@@ -88,7 +88,7 @@ class User extends React.Component<Props, State> {
             </span>
         </div>
         <div className="about_content">
-        {vedioArr.map(item=>(item.userId===this.state.id&&<Issue key={item.id} data={item} push={this.props.history.push}/>))}
+        {vedioArr.map(item=>(item.userId===this.state.id&&<Issue key={item.id} type={true} data={item} push={this.props.history.push}/>))}
         </div>
       </div>
     );

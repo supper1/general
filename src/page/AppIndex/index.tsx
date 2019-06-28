@@ -93,7 +93,7 @@ class AppIndex extends React.Component<Props, State> {
           {this.state.vedioBtnOff && <div className="tip">
             《将军爷爷讲故事》官方宣传片
           </div>}
-        </div>
+        </div> 
 
         {this.state.viewOff&& <Anthology
           push={this.props.history.push}

@@ -177,12 +177,7 @@ export async function appGeneralInfo(generalId:number) { // app中根据将军id
         data: {generalId}
     });
 }
-export async function appAddGeneralPlay(generalId:number) { // app中增加将军的播放量
-    return request({
-        url: `/app/addGeneralPlay`,
-        data: {generalId}
-    });
-}
+ 
 export async function appAddGeneralPraise(generalId:number) { // app中给将军点赞
     return request({
         url: `/app/addGeneralPraise`,
